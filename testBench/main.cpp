@@ -54,7 +54,11 @@ int main(int argc, const char * argv[]) {
     float yaw = 0.0;
     float P[2][2] = {};
     
-    
+    ofstream output("/Users/kimminjoong/Desktop/Project/HSMS/cpp/testBench/testBench/output.csv");
+    if (output.is_open()) {
+        output << "Roll, Pitch, Yaw" << endl;
+    } // comment if ofstream does not needs to be used
+        
     for(int i = 0; i < 5066; i++) {
         get_accel(data[i][0], data[i][1], data[i][2], data[i][3], data[i][4], data[i][5], accel_val);
         get_gyro(data[i][6], data[i][7], data[i][8], data[i][9], data[i][10], data[i][11], gyro_val);
@@ -63,7 +67,11 @@ int main(int argc, const char * argv[]) {
         
         measure_orient (gyro_val[0], gyro_val[1], gyro_val[2], gb, accel_val[0], accel_val[1], accel_val[2], &roll, &pitch, &yaw, P);
         cout << "roll: " << roll << " pitch: " << pitch << " yaw: " << yaw << endl;
+        output << roll << "," << pitch << "," << yaw << endl;
     }
+    
+    output.close();
+    
     
     return 0;
 }
