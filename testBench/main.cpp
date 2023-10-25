@@ -18,7 +18,7 @@ int main(int argc, const char * argv[]) {
     size_t temp;
     size_t temp1;
     string test_case[12] = {"Ax1", "Ax0", "Ay1", "Ay0", "Az1", "Az0", "Gx1", "Gx0", "Gy1", "Gy0", "Gz1", "Gz0"};
-    test.open("/Users/kimminjoong/Desktop/Project/HSMS/cpp/testBench/testBench/testbench.txt");
+    test.open("testbench.txt");
     int data[5066][12] = {};
     // Ax1, Ax0, Ay1, Ay0, Az1, Az0, Gx1, Gx0, Gy1, Gy0, Gz1, Gz0
     
@@ -54,7 +54,7 @@ int main(int argc, const char * argv[]) {
     float yaw = 0.0;
     float P[2][2] = {};
     
-    ofstream output("/Users/kimminjoong/Desktop/Project/HSMS/cpp/testBench/testBench/output.csv");
+    ofstream output("output.csv");
     if (output.is_open()) {
         output << "Roll, Pitch, Yaw" << endl;
     } // comment if ofstream does not needs to be used
