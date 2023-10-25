@@ -41,7 +41,7 @@ void measure_orient (float gyro_x, float gyro_y, float gyro_z, float* gb, float 
         float Q = 0.001;
         float Q_bias = 0.003;
         // measurement noise variance
-        float R = 0.003;
+        float R = 0.02;
         float rate_x = gyro_x - (*gb);
         *roll += 0.01*rate_x;
         float rate_y = gyro_y - (*(gb+1));
